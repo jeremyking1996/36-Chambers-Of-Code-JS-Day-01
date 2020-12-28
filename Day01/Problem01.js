@@ -6,8 +6,12 @@ class Problem {
      * separated by single spaces.
      */
     wordCount(input) {
+        // Split string into array by spaces
+        let splitArr = input.split(" ");
+
+        // return split array.length
         // code goes here
-        return null;
+        return splitArr.length;
     }
 
 
@@ -17,7 +21,12 @@ class Problem {
     * 
     */
     letterCapitalize(str) {
-        return null;
+        let strSplit= str.split(" ");
+        for(let i = 0; i < strSplit.length; i++){
+            let word = strSplit[i];
+            strSplit[i] = word[0].toUpperCase() + word.substring(1);
+        }
+        return strSplit.join(" ");
     }
 
 
@@ -29,7 +38,14 @@ class Problem {
      */
 
     firstReverse(input){
-        return null;
+        // create an empty string to store result for for loop
+        let result = '';
+        // for loop to reverse the string
+        for(let i = input.length - 1; i >= 0; i--){
+            result += input[i];
+        }
+        // return result of reversed string
+        return result;
     }
 
     /**
@@ -39,8 +55,23 @@ class Problem {
      * input will not be empty.
      */
     longestWord(input) {
-        // code goes here
-        return null;
+    // Step 1: Split array, set variable for longest words, and empty for word
+        let str = input.split(" ");
+        let longest = 0;
+        let word = null;
+        for (let i = 0; i < str.length; i++) {
+            let checkedLetters = "";
+            for (let j = 0; j < str[i].length; j++) {
+                if (/[a-zA-Z]/.test(str[i][j])) {
+                    checkedLetters += str[i][j];
+                }
+            }
+            if (longest < checkedLetters.length) {
+                longest = checkedLetters.length;
+                word = checkedLetters;
+            }
+        }
+        return word;
     }
 
     /**
@@ -49,8 +80,16 @@ class Problem {
      * Let numbers and symbols stay the way they are.
      */
     swapCase(str) {
-        // code goes here
-        return null;
+    // Step 1: Identify empty variable to return answer
+    let string1 = "";
+    // Step 2: Loop through array
+    for (let i = 0; i < str.length; i++) {
+    // Step 3: Use if statement to test for casing
+        if (/[A-Z]/.test(str[i])) string1 += str[i].toLowerCase();
+        else string1 += str[i].toUpperCase();
+    }
+    // Step 4: return final string
+    return string1;
     }
 
 }
